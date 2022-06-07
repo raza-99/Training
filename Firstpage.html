@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Firstpage.css">
+        
+    </head>
+    <body>
+   <div class="imggrid"">
+
+   
+       <div style="display:flex ; flex-direction: column ;justify-content:center;align-items: center;height: 600px;">
+        <h1 style="color:white;margin-top: 100px ;">Welome to QTrip</h1>
+        <h2 style="color: white;">Explore the world with fantastic places to venture around</h2>
+        <input style="border:none;width:30%; border-radius: 5px;padding: 10px;min-width: 15%" type="text" placeholder="Search a City"onkeyup="search(event.target.value)" >
+        
+  
+        <img style="position: absolute;left: 0px;
+        top: 0px;width: 100%;height:600px ; z-index: -1;" src="https://london.ac.uk/sites/default/files/styles/max_1300x1300/public/2018-10/london-aerial-cityscape-river-thames_1.jpg?itok=6LenFxuz"alt="Some image">
+       
+    </div>
+
+    <div style="display:flex;justify-content: center;align-items: center;width: 100%;">
+        <div style="display: flex; justify-content:space-around;width: 40%;">
+
+        
+        <div >
+
+        
+
+        <label for="country">Filter By Prices</label><br>
+        <select id="country" name="country" required onchange="Filterbyprice(event.target.value)">
+            <option value="All">All</option>
+          <option value="1000-2000">1000-2000</option>
+          <option value="2001-4000">2001-4000</option>
+          <option value="4000-6000">4000-6000</option>
+          <option value="6001-8000">6001-8000</option>
+        </select>
+
+    </div>
+    <div>
+        <label for="country">Filter By Temp</label><br>
+
+        <select id="country" name="country" required onchange="FilterbyTemp(event.target.value)">
+            <option value="All">All</option>
+            <option value="below 0">below 0</option>
+          <option value="0-10">0-10</option>
+          <option value="11-20">11-20</option>
+          <option value="20-30">20-30</option>
+          <option value="30-40">30-40</option>
+          <option value="41-50">41-50</option>
+
+        </select>
+    </div>
+</div>
+      </div>
+<div id="CS" style="display:flex; align-content:space-between;flex-wrap: wrap;margin-top: 20%;padding-left: 90px;" class="mt" >
+
+</div>
+
+    
+    </div>
+
+
+        
+
+    </div>
+    <br>
+</div>
+<script src="Firstpage.js"></script>
+    </body>
+</html>
