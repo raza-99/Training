@@ -1,0 +1,30 @@
+.imgc{
+width: 400px;
+height: 500px;
+margin: 20px;
+margin-bottom: 20px;
+
+
+}
+
+.imggrid{
+    display: flex;
+    flex-direction:column;
+}
+
+  
+@media (min-width: 800px) {
+    .imggrid {
+      
+      justify-content: space-between;
+      
+
+    }
+  }
+  
+      
+h3,h4{
+    color: white;
+    font-size: 40px;
+    
+}
