@@ -34,34 +34,73 @@ div {
 </style>
 
 <script type="text/javascript">
-function f1(){
+function f1(event){
 
 const startday=document.frm1.start.value;
 const endday=document.frm1.end.value;
 const name=document.frm1.Name.value;
 const nop=document.frm1.Nop.value;
 const email=document.frm1.Email.value;
+const nameerror=document.getElementById('namespan');
+const numbererror=document.getElementById('numberspan');
+const emailerror=document.getElementById('emailspan');
+const starterror=document.getElementById('startspan');
+const enderror=document.getElementById('endspan');
+let boo=true;
 if(name.trim()==""){
-    alert("Name cannot be empty");
-    return false;
-}
-if(nop==null){
-    alert("Number of people cannot be empty");
-    return false;
-}
-if(email.trim()==""){
-    alert("Email cannot be empty");
-    return false;
+    const message=document.createElement('span')
+    var x="* Name Cannot be Empty";
+    message.style.color="red";
+    message.innerHTML=x;
+    console.log(nameerror);
+    if(!nameerror.hasChildNodes())
+    nameerror.append(message);
+
+    boo=false;
 }
 
-if(startday>endday){
-    alert("Start day cannot be Greater than End day")
-    return false
+if(nop=="0"){
+
+    
+    const message=document.createElement('span')
+    var x="* Number of people cannot be empty";
+    message.style.color="red";
+    message.innerHTML=x;
+    console.log(nameerror);
+    if(!numbererror.hasChildNodes())
+    numbererror.append(message);
+    boo=false;
+}
+if(email.trim()==""|| !email.includes("@")){
+  
+
+    const message=document.createElement('span')
+    var x="* Enter Proper Email";
+    message.style.color="red";
+    message.innerHTML=x;
+    if(!emailerror.hasChildNodes())
+    emailerror.append(message);
+    boo=false;
 }
 
+if(startday>endday || startday==""||endday==""){
+
+
+    const message=document.createElement('span')
+    var x="* Enter Proper Dates";
+    message.style.color="red";
+    message.innerHTML=x;
+    if(!starterror.hasChildNodes())
+    starterror.append(message);
+    boo=false;
+}
+
+if(boo){
 
     alert( "Hello :"+document.frm1.Name.value+"Your Trip for "+document.frm1.Nop.value+"People  from "+document.frm1.start.value+" to "+document.frm1.end.value+" Has been suceessfully registered " );
-    return true;
+    location.reload();
+    return boo;
+}
 }
 </script>
 <body>
@@ -71,25 +110,27 @@ if(startday>endday){
 
 
 <div>
-  <form name="frm1"  action="">
+  <form name="frm1"  onsubmit="return false">
     <label for="Name"> Name</label>
-    <input type="text" id="Name" name="Name" placeholder="Your name" required>
+    <input type="text" id="Name" name="Name" placeholder="Your name" >
+    <span id="namespan"></span><br>
 
     <label for="Nop">Number of People</label>
-    <input type="number" id="Nop" name="Nop" placeholder="Enter Number of People" required>
-
+    <input type="number" id="Nop" name="Nop" placeholder="Enter Number of People"  value="0">
+    <span id="numberspan"></span><br>
 
     <label for="Email">Email</label>
-    <input type="email" id="Email" name="Email" placeholder="xyz@gmail.com" required>
-
+    <input type="email" id="Email" name="Email" placeholder="xyz@gmail.com" >
+    <span id="emailspan"></span><br>
    
     <label for="NOD">Start Day</label>
-    <input type="date" id="start" name="start" placeholder="dd/mm/yy" required>
+    <input type="date" id="start" name="start" placeholder="dd/mm/yy" >
+    <span id="startspan"></span><br>
     <label for="NOD">End Day</label>
-    <input type="date" id="end" name="end" placeholder="dd/mm/yy" required>
-
+    <input type="date" id="end" name="end" placeholder="dd/mm/yy" >
+    <span id="endspan"></span><br>
     <label for="country">Country</label>
-    <select id="country" name="country" required>
+    <select id="country" name="country" >
       <option value="India">India</option>
       <option value="UK">UK</option>
       <option value="USA">USA</option>

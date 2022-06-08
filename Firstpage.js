@@ -190,3 +190,24 @@ container.appendChild(card);
 
 }
 
+
+const searchbar=document.getElementById('searchbar');
+
+const reduceFetch=(func,delay)=>{
+    let timer;
+    return function (...args){
+        let that=this;
+        if(timer){
+        clearTimeout(timer);
+        }
+        timer=setTimeout(()=>{
+           func(that,args);
+        },delay)
+    }
+}
+const dataFetch=(field,args)=>{
+    
+search(field.value)
+};
+ 
+searchbar.addEventListener('input',reduceFetch(dataFetch,600));
